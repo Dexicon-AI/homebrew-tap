@@ -7,7 +7,7 @@
 class Dexicon < Formula
   desc "CLI tool to discover, parse, and export AI coding assistant session logs"
   homepage "https://dexicon.dev"
-  version "0.2.1"
+  version "0.2.2"
   license "MIT"
 
   on_macos do
