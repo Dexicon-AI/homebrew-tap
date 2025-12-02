@@ -4,7 +4,7 @@
 #
 # Installation: brew install Dexicon-AI/tap/dexicon-cli
 
-class DexiconCli < Formula
+class Dexicon < Formula
   desc "CLI tool to discover, parse, and export AI coding assistant session logs"
   homepage "https://dexicon.dev"
   version "0.2.1"
