@@ -1,44 +1,47 @@
-# typed: false
-# frozen_string_literal: true
+# After releasing a new version, update the formula in homebrew-tap with:
+# 1. New version number
+# 2. New SHA256 checksums from the release checksums.txt
+#
+# Installation: brew install Dexicon-AI/tap/dexicon-cli
 
-# Homebrew formula for Dexicon CLI
-#
-# To update after a new release:
-# 1. Download each binary from the release
-# 2. Run: shasum -a 256 <binary-file>
-# 3. Update the version and sha256 values below
-#
-class Dexicon < Formula
-  desc "Index and search your AI coding assistant sessions"
-  homepage "https://dexicon.ai"
+class DexiconCli < Formula
+  desc "CLI tool to discover, parse, and export AI coding assistant session logs"
+  homepage "https://dexicon.dev"
   version "0.2.1"
-  license "Proprietary"
+  license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-arm64"
-      sha256 "77bd3aacc2b2e4346ee3b6674b0e6a4b55f2009f2ca98a93fcfff7dc12425639"
+      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-arm64.tar.gz"
+      sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
-
     on_intel do
-      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-amd64"
-      sha256 "8b4c01e0bae20f79baf71a33e92b9953b713a31730c772d1b3b46a75331786a5"
+      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-amd64.tar.gz"
+      sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-linux-amd64"
-      sha256 "f833e994bd1c25b5e22b9e9d5a512d74ff38053d20935fad50c65c9c65e557c5"
+      url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-linux-amd64.tar.gz"
+      sha256 "REPLACE_WITH_ACTUAL_SHA256"
     end
   end
 
   def install
-    binary_name = "dexicon-cli-#{OS.kernel_name.downcase}-#{Hardware::CPU.arch == :arm64 ? "arm64" : "amd64"}"
-    bin.install binary_name => "dexicon"
+    # The tarball extracts to a dexicon-cli/ directory containing:
+    # - dexicon (the main binary)
+    # - *.so files (shared libraries needed by the binary)
+    # - certifi/cacert.pem (SSL certificates)
+    #
+    # We install everything to libexec and symlink the binary to bin
+    # This keeps the .so files together with the binary (required for it to work)
+
+    libexec.install Dir["dexicon-cli/*"]
+    bin.install_symlink libexec/"dexicon"
   end
 
   test do
-    assert_match "Dexicon", shell_output("#{bin}/dexicon --version")
+    assert_match version.to_s, shell_output("#{bin}/dexicon --version")
   end
 end
