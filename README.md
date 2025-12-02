@@ -5,12 +5,6 @@ This is the Homebrew tap for [Dexicon CLI](https://dexicon.ai).
 ## Installation
 
 ```bash
-brew install Dexicon-AI/tap/dexicon
-```
-
-Or:
-
-```bash
 brew tap Dexicon-AI/tap
 brew install dexicon
 ```
