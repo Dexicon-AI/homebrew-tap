@@ -29,15 +29,11 @@ class Dexicon < Formula
   end
 
   def install
-    # The tarball extracts to a dexicon-cli/ directory containing:
-    # - dexicon (the main binary)
-    # - *.so files (shared libraries needed by the binary)
-    # - certifi/cacert.pem (SSL certificates)
-    #
-    # We install everything to libexec and symlink the binary to bin
-    # This keeps the .so files together with the binary (required for it to work)
+    # Homebrew strips the top-level directory from tarballs, so files are
+    # extracted directly. Install everything to libexec and symlink the binary.
+    # This keeps the .so/.dylib files together with the binary (required for it to work)
 
-    libexec.install Dir["dexicon-cli/*"]
+    libexec.install Dir["*"]
     bin.install_symlink libexec/"dexicon"
   end
 
