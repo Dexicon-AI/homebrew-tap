@@ -13,18 +13,18 @@ class Dexicon < Formula
   on_macos do
     on_arm do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-arm64.tar.gz"
-      sha256 "e40c3a710ec019b2d9ab73d49543eaf22a1f8bdc96a2aae725b841874a6a9be6"
+      sha256 "3b760a04ff7dc49ecb3a868c68536cdfe71d250669f499a69a38ecaa2b88d2cf"
     end
     on_intel do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-amd64.tar.gz"
-      sha256 "0583be3b3d72364f8be0bf90d5dea29fe29d64f94d9e91b054c96bd07d9e1892"
+      sha256 "5008de67743ed98c9295019f85c5888d2ed42dc9059884d66b5a9dc7a4838aa5"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-linux-amd64.tar.gz"
-      sha256 "980453d5bda0cd814200912064c3396513ee8ff01c63027322b068ed041afbb9"
+      sha256 "a018975f3489bb8c5a6580ea8ca259b869837eba69cb2e5ae68f326285faa2e9"
     end
   end
 
