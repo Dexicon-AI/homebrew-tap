@@ -7,24 +7,24 @@
 class Dexicon < Formula
   desc "CLI tool to discover, parse, and export AI coding assistant session logs"
   homepage "https://dexicon.ai"
-  version "0.4.1"
+  version "0.4.2"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-arm64.tar.gz"
-      sha256 "42ac73597c093bda5fe20e59053cc8ea20bf6b9a1b6abbcfdec4b2fddea61406"
+      sha256 "9a6dc656881bba865233ce815f123a5b03d9411b1d708e2f2dbba996f0aa1e7f"
     end
     on_intel do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-darwin-amd64.tar.gz"
-      sha256 "4297d60636b7ec7e8ebfb5be37205bc9f1c825d3f2ea0d46f2e36a5b26d303a3"
+      sha256 "e2818e578c46f1b6ba026591db69c5685e3d7ef59f2cb7adc8e3e9303c616ed6"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/Dexicon-AI/get-dexicon-cli/releases/download/v#{version}/dexicon-cli-linux-amd64.tar.gz"
-      sha256 "c868c7ed857427ea84be07e88f23e8407947c19a6e4192ccdb76d2e6220ecc08"
+      sha256 "e180f74950f73ed38376f69fc7b8530738bade5cfc0f2a2cf1d0e1655d93b47e"
     end
   end
 
